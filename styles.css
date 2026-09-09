@@ -132,6 +132,16 @@ a {
   outline: none;
 }
 
+.nav-links .nav-cta {
+  background: var(--purple);
+  color: var(--white);
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+  background: var(--violet);
+}
+
 .nav-toggle {
   display: none;
   width: 44px;
@@ -233,6 +243,13 @@ h3 {
 
 .button.secondary {
   border: 1px solid rgba(255, 255, 255, 0.55);
+  color: var(--white);
+}
+
+.button.dark {
+  width: fit-content;
+  margin-top: 26px;
+  background: var(--purple);
   color: var(--white);
 }
 
@@ -362,6 +379,29 @@ h3 {
 
 .service-card {
   padding: 24px;
+}
+
+.referral-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 24px;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(229, 170, 19, 0.42);
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--gold-soft), #ffffff);
+  box-shadow: 0 12px 34px rgba(32, 19, 61, 0.07);
+}
+
+.referral-strip h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+}
+
+.referral-strip p:last-child {
+  margin: 0;
+  color: var(--muted);
 }
 
 .service-card p,
@@ -533,6 +573,15 @@ h3 {
   text-decoration: none;
 }
 
+.contact-card .button {
+  color: var(--ink);
+}
+
+.contact-button {
+  width: fit-content;
+  margin-top: 10px;
+}
+
 .contact-card a:hover,
 .contact-card a:focus-visible {
   color: var(--violet);
@@ -653,6 +702,10 @@ h3 {
     color: var(--ink);
   }
 
+  .nav-links .nav-cta {
+    color: var(--white);
+  }
+
   .hero {
     padding-top: 44px;
   }
@@ -668,6 +721,17 @@ h3 {
   .why-grid,
   .vision-grid {
     grid-template-columns: 1fr;
+  }
+
+  .referral-strip {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .referral-strip .button,
+  .button.dark,
+  .contact-button {
+    width: 100%;
   }
 
   .site-footer {
