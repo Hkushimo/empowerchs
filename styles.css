@@ -18,15 +18,24 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--ink);
   background: var(--paper);
   line-height: 1.6;
+  touch-action: pan-y;
 }
 
 img {
@@ -53,6 +62,8 @@ a {
 .site-header {
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -69,6 +80,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
   color: var(--purple);
   line-height: 1;
   text-decoration: none;
@@ -85,6 +97,7 @@ a {
 .text-brand span {
   display: grid;
   gap: 2px;
+  min-width: 0;
 }
 
 .text-brand strong {
@@ -301,9 +314,12 @@ h3 {
 .intro,
 .section,
 .split-section,
+.vision,
 .why,
 .contact {
   padding: clamp(56px, 8vw, 104px) clamp(18px, 5vw, 76px);
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .intro {
@@ -451,15 +467,14 @@ h3 {
   color: var(--white);
 }
 
-.vision {
-  padding: clamp(56px, 8vw, 104px) clamp(18px, 5vw, 76px);
-  background: var(--white);
-}
-
 .vision-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+
+.vision {
+  background: var(--white);
 }
 
 .vision-grid figure {
@@ -577,8 +592,38 @@ h3 {
 }
 
 @media (max-width: 720px) {
+  body {
+    padding-top: 72px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
   .site-header {
+    position: fixed;
     min-height: 72px;
+    width: 100%;
+    padding: 10px 14px;
+  }
+
+  .text-brand {
+    gap: 8px;
+    max-width: calc(100% - 58px);
+  }
+
+  .text-brand img {
+    width: 48px;
+    height: 42px;
+    flex: 0 0 auto;
+  }
+
+  .text-brand strong {
+    font-size: 1.2rem;
+  }
+
+  .text-brand small {
+    font-size: 0.7rem;
   }
 
   .nav-toggle {
@@ -588,8 +633,8 @@ h3 {
   .nav-links {
     position: absolute;
     top: 100%;
-    right: 18px;
-    left: 18px;
+    right: 14px;
+    left: 14px;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -610,6 +655,12 @@ h3 {
 
   .hero {
     padding-top: 44px;
+  }
+
+  section,
+  main,
+  footer {
+    scroll-margin-top: 82px;
   }
 
   .service-grid,
